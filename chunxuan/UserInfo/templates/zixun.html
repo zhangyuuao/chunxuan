@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}">
+<style>
+    .card {
+        border-color: #95CACA ;
+        border-radius: 10px;
+    }
+    
+</style>
+{% endblock css %}
+{% block content %}
+<div class="container">
+    <section class="my-4">
+        <h1>资讯卡片</h1>
+        <div class="row my-2">
+        <!-- results -->
+            <div style="height:800px;width:2000px;overflow-y: scroll;">
+    {% autoescape off %}
+            {% for item in results_html %}
+            {{item}}
+            {% endfor %}
+    {% endautoescape %}
+                </div>
+    <!-- end of results -->
+<!--            <div class="col-md-6 my-2">-->
+<!--                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">-->
+<!--                    <div class="col p-4 d-flex flex-column position-static">-->
+<!--                        <strong class="d-inline-block mb-2 text-primary">World</strong>-->
+<!--                        <h3 class="mb-0">阿尔兹海默症开山论文造假</h3>-->
+<!--                        <div class="mb-1 text-muted">Jul 21 2022</div>-->
+<!--                        <p class="card-text mb-auto">学术界污点：阿尔茨海默症发病机制流行理论的奠基性论文，涉及到Aβ*56的图像被进行了后期加工，进行了多次复制粘贴操作，从而捏造了实验结果。</p>-->
+<!--                        <a href="{% static 'pdf/science.add9993.pdf' %}" class="stretched-link">Continue reading</a>-->
+<!--                    </div>-->
+<!--                    <div class="col-auto d-none d-lg-block">-->
+<!--                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"-->
+<!--                            aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">-->
+<!--                            <title>Placeholder</title>-->
+<!--                            <rect width="100%" height="100%" fill="#0d63fd"></rect>-->
+<!--                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Science</text>-->
+<!--                        </svg>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6 my-2">-->
+<!--                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">-->
+<!--                    <div class="col p-4 d-flex flex-column position-static">-->
+<!--                        <strong class="d-inline-block mb-2 text-success">China</strong>-->
+<!--                        <h3 class="mb-0">中国阿尔茨海默病报告2021</h3>-->
+<!--                        <div class="mb-1 text-muted">Aug 25 2021</div>-->
+<!--                        <p class="mb-auto">目前,中国AD发病率、患病率及死亡率仍持续增高,AD死亡占城乡居民总死亡原因的第5位,给居民和社会带来的经济负担日渐加重。</p>-->
+<!--                        <a href="{% static 'pdf/中国阿尔茨海默病报告2021_任汝静.pdf' %}" class="stretched-link text-success">Continue reading</a>-->
+<!--                    </div>-->
+<!--                    <div class="col-auto d-none d-lg-block">-->
+<!--                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"-->
+<!--                            aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">-->
+<!--                            <title>Placeholder</title>-->
+<!--                            <rect width="100%" height="100%" fill="#198754"></rect>-->
+<!--                            <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="text">Statistics</text>-->
+<!--                        </svg>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6">-->
+<!--                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">-->
+<!--                    <div class="col p-4 d-flex flex-column position-static">-->
+<!--                        <strong class="d-inline-block mb-2 text-primary">World</strong>-->
+<!--                        <h3 class="mb-0">阿尔兹海默症开山论文造假</h3>-->
+<!--                        <div class="mb-1 text-muted">Jul 21 2022</div>-->
+<!--                        <p class="card-text mb-auto">学术界污点：阿尔茨海默症发病机制流行理论的奠基性论文，涉及到Aβ*56的图像被进行了后期加工，进行了多次复制粘贴操作，从而捏造了实验结果。</p>-->
+<!--                        <a href="{% static 'pdf/science.add9993.pdf' %}" class="stretched-link">Continue reading</a>-->
+<!--                    </div>-->
+<!--                    <div class="col-auto d-none d-lg-block">-->
+<!--                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"-->
+<!--                            aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">-->
+<!--                            <title>Placeholder</title>-->
+<!--                            <rect width="100%" height="100%" fill="#0d63fd"></rect>-->
+<!--                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Science</text>-->
+<!--                        </svg>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6">-->
+<!--                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">-->
+<!--                    <div class="col p-4 d-flex flex-column position-static">-->
+<!--                        <strong class="d-inline-block mb-2 text-success">China</strong>-->
+<!--                        <h3 class="mb-0">中国阿尔茨海默病报告2021</h3>-->
+<!--                        <div class="mb-1 text-muted">Aug 25 2021</div>-->
+<!--                        <p class="mb-auto">目前,中国AD发病率、患病率及死亡率仍持续增高,AD死亡占城乡居民总死亡原因的第5位,给居民和社会带来的经济负担日渐加重。</p>-->
+<!--                        <a href="{% static 'pdf/中国阿尔茨海默病报告2021_任汝静.pdf' %}" class="stretched-link text-success">Continue reading</a>-->
+<!--                    </div>-->
+<!--                    <div class="col-auto d-none d-lg-block">-->
+<!--                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"-->
+<!--                            aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">-->
+<!--                            <title>Placeholder</title>-->
+<!--                            <rect width="100%" height="100%" fill="#198754"></rect>-->
+<!--                            <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="text">Statistics</text>-->
+<!--                        </svg>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </section>
+    <section class="my-4 text-center">
+       
+    </section>
+</div>
+{% endblock content %}
+{% block js %}
+
+{% endblock js %}

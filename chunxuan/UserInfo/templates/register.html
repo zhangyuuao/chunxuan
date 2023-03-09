@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}">
+{% endblock css %}
+
+{% block content %}
+<section>
+    <div class="container mt-3 row">
+        <div class="mb-3 col-lg-6">
+            <label for="formFile" class="form-label">请上传你的病例</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+
+        <div class="mb3 col-lg-6">
+            <label for="exampleColorInput" class="form-label">Color picker</label>
+            <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color">
+        </div>
+
+        <div class="input-group mb-3 col-lg-6">
+            <button type="button" class="btn btn-outline-secondary">Action</button>
+
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" tabindex="-1" id='myModal' aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>创建订单</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="formRegister">
+                    <div class="row">
+                        {% for item in form %}
+                        <div class="form-floating my-2">
+                            {{item}}
+                            <label for="floatingInput">{{item.label}}</label>
+                            <span style="color: red;"></span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button id="btnRegister" class="btn btn-primary text-nowrap" type="button">注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+<script type="text/javascript">
+    $(function () {
+        bindBtnAddEvent();
+    })
+
+    function bindBtnAddEvent() {
+        $("#btnRegister").click(function() {
+            $.ajax({
+                url: '/register/',
+                type: "post",
+                data: $("#formRegister").serialize(),
+                dataType: "JSON",
+                success: function (res) {
+                    if (res.status) {
+                        alert("注册成功")
+                        location.reload();
+                    } else {
+                        $.each (res.error, function(key, value) {
+                            $("#id_" + key).next().text(value[0])
+                        })
+                    }
+                }
+            })
+        })
+    }
+</script>
+{% endblock js %}

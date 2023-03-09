@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <section class="bg my-3">
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-3">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary" id="btnCheck">测试记录</span>
+                    <span class="badge bg-primary rounded-pill">{{number}}</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    
+                    {% for item in row_data %}
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <div>
+                            <h6 class="text-success my-0">{{item.username}}--{{item.test_time}}</h6>
+                            <small>记忆力：{{item.score1}}</small>
+                            <small>定向力：{{item.score2}}</small>
+                            <small>社会活动力：{{item.score3}}</small>
+                            <small>问题解决力：{{item.score4}}</small>
+                            <small>视空间能力：{{item.score5}}</small>
+                        </div>
+                    </li>
+                    {% endfor %}
+                        
+                </ul>
+        
+                <form class="card p-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Check more">
+                        <button type="submit" class="btn btn-secondary">搜索</button>
+                    </div>
+                </form>
+            </div>
+    
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">椿萱健康监测模型</h4>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    {% for item in form %}
+                    <div class="form-floating my-2">
+                        {{item}}
+                        <label for="floatingInput">{{item.label}}</label>
+                        <span style="color: red;"></span>
+                    </div>
+                    {% endfor %}
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">开始评估</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="myInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="myModalLabel">测试记录</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="card mb-2">
+                        <div class="card-body d-grid">
+                            <table class="table table-bordered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th class="text-center text-success">测试时间</th>
+                                        <th class="text-center">用户名</th>
+                                        <th class="text-center">记忆力</th>
+                                        <th class="text-center">定向力</th>
+                                        <th class="text-center">社会活动力</th>
+                                        <th class="text-center">问题解决力</th>
+                                        <th class="text-center">视空间力</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for data in queryset_all %}
+                                    <tr>
+                                        <th class="text-center">{{data.test_time}}</th>
+                                        <th class="text-center">{{data.username}}</th>
+                                        <th class="text-center">{{data.score1}}</th>
+                                        <th class="text-center">{{data.score2}}</th>
+                                        <th class="text-center">{{data.score3}}</th>
+                                        <th class="text-center">{{data.score4}}</th>
+                                        <th class="text-center">{{data.score5}}</th>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block js %}
+<script type="text/javascript">
+    $(function () {
+        bindBtnInfoEvent();
+    })
+    function bindBtnInfoEvent() {
+        $("#btnCheck").click(function () {
+            $("#myInfoModal").modal("show");
+        })
+    }
+</script>
+{% endblock js %}

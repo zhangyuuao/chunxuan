@@ -1,0 +1,407 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css %}
+{% endblock css%}
+
+{% block content %}
+<div class="container">
+    <section class="bg rounded-4 my-3">
+        <div class="row my-2">
+            <div class="col-lg-3">
+                <div class="accordion my-3" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed alert-success" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <h6>什么是<mark>阿尔兹海默症</mark></h6>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                阿尔茨海默病 (Alzheimer's disease，AD）是发生于老年和老年前期、以进行性认知功能障碍和行为损害为特征的中枢神经系统退行性病变。临床上表现为记忆障碍、失语、失用、失认，视空问能力损害、抽象思维和计算力损害、人格和行为改变等。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed alert-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                <h6>阿尔兹海默症的<mark>预后</mark></h6> 
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                由于发病因素涉及很多方面，绝不能单纯的药物治疗。临床细致科学的护理对患者行为矫正、记忆恢复有着至关重要的作用。对长期卧床者，要注意大小便，定时翻身擦背，防止压疮发生。对兴奋不安患者，应有家属陪护，以免发生意外。注意患者的饮食起居，不能进食或进食困难者给予协助或鼻饲。加强对患者的生活能力及记忆力的训练。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed alert-secondary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                <h6>关注<mark>照料者</mark></h6>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                阿尔茨海默病患者往往会表现出愤怒、内疚．压力、沮丧、担心！悲伤以及社会孤立感等负面情绪，长期照顾患者可能会影响照料者的心理健康，因此照料者也应保特健康的生活方式，注意休息，保持平和的心态，避免焦虑，必要时寻求心理医生的帮助。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="picslide" class="carousel slide col-lg-6 mb-lg-5" data-bs-ride="carousel">
+                <!-- 指标/点 -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#picslide" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#picslide" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#picslide" data-bs-slide-to="2"></button>
+                </div>
+            
+                <!-- 幻灯片/轮播 -->
+                <div class="carousel-inner my-3">
+                    <div class="carousel-item active">
+                        <img src="{% static 'img/img_1.jpg' %}" alt="pic1" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h3>珍惜当下</h3>
+                            <p>时光一去不返，往事只能追忆</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/img_2.jpg' %}" alt="pic2" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h3>健康生活</h3>
+                            <p>习惯决定一切，积极面对生活</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/img_3.jpg' %}" alt="pic3" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h3>陪伴，从现在开始</h3>
+                            <p>知君此去情偏切，堂上椿萱雪满头</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- 左右控件/图标 -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#picslide" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#picslide" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+            <div class="col-lg-3 my-3 mb-5">
+                <div class="card mb-3 rounded-3 shadow-sm border-success">
+                    <div class="card-header py-3 text-white bg-success border-success">
+                        <h3 class="my-0 fw-normal">临床表现</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title pricing-card-title">如何早期<small class="text-muted fw-light">诊断？</small></h4>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>记忆减退？</li>
+                            <li>视力下降？</li>
+                            <li>生活难以自理？</li>
+                            <li>大小便失禁？</li>
+                            <li>四肢僵硬？</li>
+                            <li>...</li>
+                            <li>...</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">点击了解不同阶段的症状</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" tabindex="-1" id='myModal' aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content rounded-6 shadow">
+                    <div class="modal-header border-bottom-0">
+                        <h5 class="modal-title">阿尔兹海默症的三个阶段解读</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body py-0">
+                        <p>
+                            该病起病缓慢或隐匿，病人及家人常说不清何时起病。多见于70岁以上（男性平均73岁，女性为75岁）老人，少数病人在躯体疾病、骨折或精神受到刺激后症状迅速明朗化。女性较男性多（女∶男为3∶1）。主要表现为认知功能下降、精神症状和行为障碍、日常生活能力的逐渐下降。根据认知能力和身体机能的恶化程度分成三个时期。
+                        </p>
+                        <p>
+                            <mark>第一阶段（1～3年）</mark>
+                            为轻度痴呆期。表现为记忆减退，对近事遗忘突出；判断能力下降，病人不能对事件进行分析、思考、判断，难以处理复杂的问题；工作或家务劳动漫不经心，不能独立进行购物、经济事务等，社交困难；尽管仍能做些已熟悉的日常工作，但对新的事物却表现出茫然难解，情感淡漠，偶尔激惹，常有多疑；出现时间定向障碍，对所处的场所和人物能做出定向，对所处地理位置定向困难，复杂结构的视空间能力差；言语词汇少，命名困难。
+                        </p>
+                        <p>
+                            <mark>第二阶段（2～10年）</mark>
+                            为中度痴呆期。表现为远近记忆严重受损，简单结构的视空间能力下降，时间、地点定向障碍；在处理问题、辨别事物的相似点和差异点方面有严重损害；不能独立进行室外活动，在穿衣、个人卫生以及保持个人仪表方面需要帮助；计算不能；出现各种神经症状，可见失语、失用和失认；情感由淡漠变为急躁不安，常走动不停，可见尿失禁。
+                        </p>
+                        <p>
+                            <mark>第三阶段（8～12年）</mark>
+                            为重度痴呆期。患者已经完全依赖照护者，严重记忆力丧失，仅存片段的记忆；日常生活不能自理，大小便失禁，呈现缄默、肢体僵直，查体可见锥体束征阳性，有强握、摸索和吸吮等原始反射。最终昏迷，一般死于感染等并发症。
+                        </p>
+                    </div>
+                    <div class="modal-footer flex-column border-top-0">
+                        <button type="button" class="btn btn-lg btn-success w-100 mx-0 mb-2" data-bs-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% comment %} <div class="col-3 my-5 mb-3">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="list" href="#">活动</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="list" href="#">链接</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="list" href="#">链接</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" data-bs-toggle="list" href="#">禁用</a>
+                </li>
+            </ul>
+        </div> {% endcomment %}
+    </section>
+
+    <section class="bg-light rounded-4 my-2">
+        <div class="row my-2">
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">World</strong>
+                        <h3 class="mb-0">阿尔兹海默症开山论文造假</h3>
+                        <div class="mb-1 text-muted">Jul 21 2022</div>
+                        <p class="card-text mb-auto">学术界污点：阿尔茨海默症发病机制流行理论的奠基性论文，涉及到Aβ*56的图像被进行了后期加工，进行了多次复制粘贴操作，从而捏造了实验结果。</p>
+                        <a href="{% static 'pdf/science.add9993.pdf' %}" class="stretched-link">Continue reading</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
+                            aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#0d63fd"></rect>
+                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Science</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success">China</strong>
+                        <h3 class="mb-0">中国阿尔茨海默病报告2021</h3>
+                        <div class="mb-1 text-muted">Aug 25 2021</div>
+                        <p class="mb-auto">目前,中国AD发病率、患病率及死亡率仍持续增高,AD死亡占城乡居民总死亡原因的第5位,给居民和社会带来的经济负担日渐加重。</p>
+                        <a href="{% static 'pdf/中国阿尔茨海默病报告2021_任汝静.pdf' %}" class="stretched-link text-success">Continue reading</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
+                            aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#198754"></rect>
+                            <text x="50%" y="50%" fill="#eceeef" dy=".3em" class="text">Statistics</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h5 class="display-5 fw-bold">多任务学习预测患病风险</h5>
+            <div class="row">
+                <p class="col-md-8 fs-4">我们的研究采用多任务学习模型（Multi-Task Learning）预测其在记忆能力、定向力、社会活动能力、问题解决能力、视空间能力五个维度的任务中的得分，给出与之相关的最新健康评估报告，反映近期患者的健康状态，为维持健康现状或发现自己有潜在患病风险提供建议和警示。<br><span class="text-success">我们的算法使用了最先进的多门控机制专家混合模型。</span></p>
+                <img src="{% static 'img/图片 1.jpg' %}" alt="" class="col-md-8" style="width: 33%; height: 33%; ">
+            </div>
+            <button class="btn btn-lg" type="button" onclick="window.open('/aitest/')">点击进入</button>
+        </div>
+    </section>
+
+    <section>
+        <div class="row align-items-md-stretch">
+            <div class="col-md-6">
+                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                    <h2>老年认知功能减退知情者测试2022</h2>
+                    <p>如果您能记起家人10年前的情形，来和他现在的情形相比较，包括他对现在的日常生活和以前所发生的事情的记忆，那么本测试可以
+                        帮助您初步判断家中老人目前是否处于早期阿尔兹海默症的患病阶段。
+                    </p>
+                    <p>注：本测试仅供参考。</p>
+                    <button class="btn btn-outline-light" type="button" onclick="window.open('/test1/')">点击测试</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="h-100 p-5 bg-light border rounded-3">
+                    <h2>基于MMSE和SAGE的认知能力测试</h2>
+                    <p>简易智力状态检查量表（MMSE）是根据张明园修订的简易智力状态检查改编而成。能全面、准确、迅速地反映被试智力状态及认知功能缺损程度。为临床心理学诊断、治疗以及神经心理学的研究提供科学依据。</p>
+                    <p>注：本测试仅供参考。</p>
+                    <button class="btn btn-outline-secondary" type="button" onclick="window.open('/test2/')">点击测试</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light rounded-4 my-5">
+        <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart2" width="2304" height="972" style="display: block; height: 486px; width: 1152px;"></canvas>
+    </section>
+
+    <section class="bg-light rounded-4 my-5">
+        <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart1" width="2304" height="972" style="display: block; height: 486px; width: 1152px;"></canvas>
+    </section>
+
+</div>
+{% endblock content %}
+
+{% block js %}
+<script src="{% static 'plugins/bootstrap-5.1.3-dist/js/bootstrap.bundle.js' %}" integrity="sha384-Nj1D6pu2WnJojj+67GiU9ZFNwbl7bUWX5Kj5MS22C8bGjllemM9pvQyvj14zJb58" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+<script>
+    (function () {
+        'use strict'
+        feather.replace({ 'aria-hidden': 'true' })
+        var color = Chart.helpers.color;
+        // Graphs
+        var ctx = document.getElementById('myChart1')
+        // eslint-disable-next-line no-unused-vars
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [
+                    '2015',
+                    '2020',
+                    '2030',
+                    '2040',
+                    '2050',
+                ],
+                datasets: [{
+                    data: [13816, 15000, 20734, 18918, 20479],
+                    label: "60-69岁",
+                    lineTension: 0,
+                    backgroundColor: "transparent",
+                    borderColor: 'blue',
+                    borderWidth: 1,
+                    pointBackgroundColor: 'blue',
+                },
+                {
+                    data: [6906, 8274, 11850, 16789, 14881],
+                    label: "70-79岁",
+                    lineTension: 0,
+                    backgroundColor: "transparent",
+                    borderColor: "red",
+                    borderWidth: 1,
+                    pointBackgroundColor: 'red',
+                },
+                {
+                    data: [2857, 3220, 4752, 7117, 9628],
+                    label: "80+岁",
+                    lineTension: 0,
+                    backgroundColor: "transparent",
+                    borderColor: "green",
+                    borderWidth: 1,
+                    pointBackgroundColor: 'green',
+                }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                legend: {
+                    position: 'right',
+                    labels: {
+                        usePointStyle: true
+                    },
+                    font: {
+                        size: 10
+                    }
+                },
+                title: {
+                    display: true,
+                    text: "2015-2050 年中国 60 岁以上老年人口数(万)变化趋势",
+                }
+            }
+        })
+    })()
+</script>
+<script>
+    (function () {
+        'use strict'
+        feather.replace({ 'aria-hidden': 'true' })
+        var color = Chart.helpers.color;
+        // Graphs
+        var ctx = document.getElementById('myChart2')
+        // eslint-disable-next-line no-unused-vars
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    '2015',
+                    '2020',
+                    '2030',
+                    '2040',
+                    '2050',
+                ],
+                datasets: [{
+                    data: [414, 450, 622, 567, 614],
+                    label: "60-69岁",
+                    lineTension: 0,
+                    backgroundColor: color("blue").alpha(0.5).rgbString(),
+                    borderColor: 'blue',
+                    borderWidth: 1,
+                    pointBackgroundColor: 'blue',
+                },
+                {
+                    data: [421, 504, 722, 1024, 907],
+                    label: "70-79岁",
+                    lineTension: 0,
+                    backgroundColor: color("red").alpha(0.5).rgbString(),
+                    borderColor: "red",
+                    borderWidth: 1,
+                    pointBackgroundColor: 'red',
+                },
+                {
+                    data: [440, 496, 731, 1096, 1482],
+                    label: "80+岁",
+                    lineTension: 0,
+                    backgroundColor: color("green").alpha(0.5).rgbString(),
+                    borderColor: "green",
+                    borderWidth: 1,
+                    pointBackgroundColor: 'green',
+                }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                legend: {
+                    labels: {
+                        usePointStyle: false
+                    },
+                    font: {
+                        size: 10
+                    }
+                },
+                title: {
+                    display: true,
+                    text: "2015-2050 年中国阿尔茨海默病患病人数(万)统计",
+                }
+            }
+        })
+    })()
+</script>
+{% endblock js %}
+

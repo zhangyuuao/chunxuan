@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <section class="my-4">
+        <h1>椿萱健康监测模型-结果查看</h1>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center my-4">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-success">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">记忆力</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">{{score1}}<small class="text-muted fw-light">/points</small></h1>
+                        <h2 class="text-success">{{rank1}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">定向力</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">{{score2}}<small class="text-muted fw-light">/points</small></h1>
+                        <h2 class="text-primary">{{rank2}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-success">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">视空间力</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">{{score5}}<small class="text-muted fw-light">/points</small></h1>
+                        <h2 class="text-success">{{rank5}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center my-4">
+            <div class="col-lg-6">
+                <div class="card mb-4 rounded-3 shadow-sm border-success">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">社会活动力</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">{{score3}}<small class="text-muted fw-light">/points</small></h1>
+                        <h2 class="text-success">{{rank3}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">问题解决力</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">{{score4}}<small class="text-muted fw-light">/points</small></h1>
+                        <h2 class="text-primary">{{rank4}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

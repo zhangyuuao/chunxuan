@@ -1,0 +1,133 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}">
+<style>
+    .card {
+        border-color: #95CACA ;
+        border-radius: 10px;
+    }
+</style>
+{% endblock css %}
+{% block content %}
+<div class="container">
+    <section class="my-5">
+        <div class="row">
+            <div class="col-lg-3 mb-2">
+                <div class="accordion mb-2" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed alert-success" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <h6>什么是<mark>阿尔兹海默症</mark></h6>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                阿尔茨海默病 (Alzheimer's disease，AD）是发生于老年和老年前期、以进行性认知功能障碍和行为损害为特征的中枢神经系统退行性病变。临床上表现为记忆障碍、失语、失用、失认，视空问能力损害、抽象思维和计算力损害、人格和行为改变等。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed alert-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                <h6>阿尔兹海默症的<mark>预后</mark></h6> 
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                由于发病因素涉及很多方面，绝不能单纯的药物治疗。临床细致科学的护理对患者行为矫正、记忆恢复有着至关重要的作用。对长期卧床者，要注意大小便，定时翻身擦背，防止压疮发生。对兴奋不安患者，应有家属陪护，以免发生意外。注意患者的饮食起居，不能进食或进食困难者给予协助或鼻饲。加强对患者的生活能力及记忆力的训练。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed alert-secondary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                <h6>关注<mark>照料者</mark></h6>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                阿尔茨海默病患者往往会表现出愤怒、内疚．压力、沮丧、担心！悲伤以及社会孤立感等负面情绪，长期照顾患者可能会影响照料者的心理健康，因此照料者也应保特健康的生活方式，注意休息，保持平和的心态，避免焦虑，必要时寻求心理医生的帮助。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card m-auto">
+                    <h5 class="card-header">老年认知功能减退知情者问卷（IQCODE）</h5>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">
+                            我希望您能记起家人10年前的情形，来和他现在的情形相比较，包括他对现在的日常生活和以前所发生的事情的记忆。
+                        </p>
+                        <p class="card-text">
+                            假如在10年前就常常忘记东西放在哪里，而现在仍然如此，就请您回答<mark>“无变化”</mark>。
+                        </p>
+                        <form method="post" action="" class="formPost">
+                            {% csrf_token %}
+                            {% for question in questions %}
+                            <div>
+                                --{{ question }}
+                                <div class="form-check form-check-inline mx-2 my-2">
+                                    <input class="form-check-input" type="radio" name="{{question}}" value="1">
+                                    <label class="form-check-label" for="inlineCheckbox1">好多了</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="{{question}}" value="2">
+                                    <label class="form-check-label" for="inlineCheckbox1">好一点</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="{{question}}" value="3">
+                                    <label class="form-check-label" for="inlineCheckbox1">无变化</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="{{question}}" value="4">
+                                    <label class="form-check-label" for="inlineCheckbox1">差一点</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="{{question}}" value="5">
+                                    <label class="form-check-label" for="inlineCheckbox1">差多了</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="{{question}}" value="9">
+                                    <label class="form-check-label" for="inlineCheckbox1">不知道</label>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            <div class="row mt-2">
+                                <div class="col-md mb-2">
+                                    <button id="btnPost" type="submit" class="form-control btn-success"  onclick="finishTest();">提交测试</button>
+                                </div>
+                                <div class="col-md">
+                                    <button class="form-control btn-outline-primary" href="/home">返回主页</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <p>本研究中我们评估了IQCODE从认知正常和轻度AD人群中区分MCI的效度，并得出了相应的划界分：IQCODE得分＞53则表明轻度AD的可能，需要引起注意和进一步接受治疗。</p>
+                        <p><mark>注：</mark>此报告仅供参考，请以医生判断为准.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</div>
+{% endblock content %}
+{% block js %}
+<script>
+    function finishTest(){
+        alert("提交成功！")
+    }
+</script>
+{% endblock js %}

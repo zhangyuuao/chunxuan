@@ -1,0 +1,122 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}">
+<style>
+    .card {
+        border-color: #95CACA ;
+        border-radius: 10px;
+    }
+</style>
+{% endblock css %}
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row my-3">
+            <div class="accordion col-lg-3 mb-2" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed alert-success" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <mark>测试记录</mark>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            {% for item in row_data %}
+                            <li class="list-group-item d-flex justify-content-between bg-light">
+                                <div>
+                                    <h6 class="text-success my-0">{{item.username}}--{{item.test_time}}</h6>
+                                    <small>记忆力：{{item.score1}}</small>
+                                    <small>定向力：{{item.score2}}</small>
+                                    <small>社会活动力：{{item.score3}}</small>
+                                    <small>问题解决力：{{item.score4}}</small>
+                                    <small>视空间能力：{{item.score5}}</small>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed alert-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <mark>结果分析</mark>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>
+                                该病起病缓慢或隐匿，病人及家人常说不清何时起病。多见于70岁以上（男性平均73岁，女性为75岁）老人，少数病人在躯体疾病、骨折或精神受到刺激后症状迅速明朗化。女性较男性多（女∶男为3∶1）。主要表现为认知功能下降、精神症状和行为障碍、日常生活能力的逐渐下降。根据认知能力和身体机能的恶化程度分成三个时期。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed alert-secondary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            <mark>不知道写啥</mark>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            由于发病因素涉及很多方面，绝不能单纯的药物治疗。临床细致科学的护理对患者行为矫正、记忆恢复有着至关重要的作用。对长期卧床者，要注意大小便，定时翻身擦背，防止压疮发生。对兴奋不安患者，应有家属陪护，以免发生意外。注意患者的饮食起居，不能进食或进食困难者给予协助或鼻饲。加强对患者的生活能力及记忆力的训练。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card m-auto col-8">
+                    <h5 class="card-header">
+                    我的信息
+                    </h5>
+                    <div class="card-body">
+                        <div class="card-title">您可以对部分信息进行修改。</div>
+                        <form method='post'>
+                            {% csrf_token %}
+                            <div class="row">
+                                {% for item in form %}
+                                <div class="form-floating my-2 col-6">
+                                    {{item}}
+                                    <label for="{{item.label}}">{{item.label}}</label>
+                                    <span style="color: red;">{{item.errors.0}}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button class="form-control btn btn-success text-nowrap" type="submit">保存</button>
+                                </div>
+                                <div class="col">
+                                    <button class="form-control btn btn-outline-primary text-nowrap" href="/home/">返回</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js' %}"></script>
+    <script>
+        $(function () {
+            $('#id_birthday').datepicker({
+                format: 'yyyy/mm/dd',
+                startDate: '1949/01/01',
+                language: "zh-CN",
+                autoclose: true
+            });
+
+        })
+    </script>
+{% endblock %}
